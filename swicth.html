@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Swicth </title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.2/js/bootstrap-switch.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap-theme.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.2/css/bootstrap2/bootstrap-switch.min.css" />
+
+</head>
+
+<body>
+
+    <style>
+        .switch {
+          position: relative;
+          display: inline-block;
+          width: 50px;
+          height: 25px;
+        }
+        
+        .switch input { 
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+        
+        .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          -webkit-transition: .4s;
+          transition: .4s;
+        }
+        
+        .slider:before {
+          position: absolute;
+          content: "";
+          height: 17px;
+          width: 17px;
+          left: 4px;
+          bottom: 4px;
+          background-color: white;
+          -webkit-transition: .4s;
+          transition: .4s;
+        }
+        
+        input:checked + .slider {
+          background-color: #2196F3;
+        }
+        
+        input:focus + .slider {
+          box-shadow: 0 0 1px #2196F3;
+        }
+        
+        input:checked + .slider:before {
+          -webkit-transform: translateX(26px);
+          -ms-transform: translateX(26px);
+          transform: translateX(26px);
+        }
+        
+        /* Rounded sliders */
+        .slider.round {
+          border-radius: 34px;
+        }
+        
+        .slider.round:before {
+          border-radius: 50%;
+        }
+    </style>
+
+<div class="col-md-6">
+    <div class="row">
+<div class="col-xs-12 list-group-item mt-2">
+    <label>Home Url</label>
+    <div style="width: 40px; ">
+    <input   name="hl"   type="checkbox" onclick="documentFilter(this, '#hideablehome')" />
+   
+</div>
+</div>
+
+<div class="col-sm-6 mt-1" id="hideablehome"  class="hiddenByDefault">
+        <div class="form-group">
+          
+            <input tabindex="2" class="form-control controls" type="text" placeholder="Enter Home Url" name="home_url" >
+        </div>
+    </div>
+
+<!---->
+
+<div class="col-xs-12 list-group-item mt-2">
+    <label>Instagram </label>
+    <div style="width: 40px; ">
+    <input   name="insta"   type="checkbox" onclick="documentFilter(this, '#hideableinsta')" />
+   
+</div>
+</div>
+
+<div class="col-sm-6 mt-2" id="hideableinsta"  class="hiddenByDefault">
+        <div class="form-group">
+          
+            <input tabindex="2"  class="form-control controls" type="text" placeholder="Enter Instagram Url" name="instagram_url" >
+        </div>
+    </div>
+
+</div>
+</div>
+
+
+
+<div class="col-md-6">
+    <div class="row">
+        <h4> Defualt Show Input</h4>
+<div class="col-xs-12 list-group-item mt-2">
+    <label>Facebook </label>
+    <div style="width: 40px; ">
+    <input   name="fb"   type="checkbox" onclick="documentFilter(this, '#hideablefb')" />
+   
+</div>
+</div>
+
+<div class="col-sm-6 mt-2" id="hideablefb"  class="hiddenByfb">
+        <div class="form-group">
+          
+            <input tabindex="2"  class="form-control controls" type="text" placeholder="Enter Facebook Url" name="facebook_url" >
+        </div>
+    </div>
+
+</div>
+</div>
+
+
+
+<script>
+
+$('#hideablehome').hide();
+$("[name='hl']").bootstrapSwitch({
+  onSwitchChange: function(e, state) {
+    $('#hideablehome').toggle(state);
+  }
+});
+
+
+$('#hideableinsta').hide();
+$("[name='insta']").bootstrapSwitch({
+  onSwitchChange: function(e, state) {
+    $('#hideableinsta').toggle(state);
+  }
+});
+
+
+
+//$('#hideablefb').hide();
+$("[name='fb']").bootstrapSwitch({
+  onSwitchChange: function(e, state) {
+    $('#hideablefb').toggle(state);
+  }
+});
+
+
+
+
+</script>
+    
+</body>
+</html>
